@@ -1,0 +1,9 @@
+
+
+module.exports = "CREATE TABLE IF NOT EXISTS Helplines (" +
+    "HelplineId INT NOT NULL AUTO_INCREMENT," +
+    "Phone VARCHAR(255)," +
+    "Status VARCHAR(255)," +
+    "TNX VARCHAR(255)," +
+    "CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
+    "PRIMARY KEY (HelplineId));"

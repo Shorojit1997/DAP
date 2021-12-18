@@ -1,6 +1,7 @@
 
 const query = require('./query');
 
+const Admins=require('../models/Admins')
 const Appointments=require('../models/Appointments');
 const Address=require('../models/Address')
 
@@ -8,7 +9,9 @@ const Blogs =require('../models/Blogs');
 
 const Comments=require('../models/Comment');
 const Clinic=require('../models/Clinics');
-const Clinic_has_Doctor=require('../models/Clinic_has_Doctor')
+const Clinic_has_Doctor=require('../models/Clinic_has_Doctor');
+const Colors=require('../models/Colors')
+
 
 const DoctorAuth = require('../models/DoctorAuth');
 const DoctorInfo=require('../models/DoctorInfo');
@@ -16,8 +19,14 @@ const DoctorInfo=require('../models/DoctorInfo');
 const Educations=require('../models/Educations')
 const Experience=require('../models/Experience');
 
+const Helplines=require('../models/Helplines')
+
+const Informations=require('../models/Informations')
+
 const Medicle_reports=require('../models/Medicle_report');
 const Medicne =require('../models/Medicines');
+
+const Upload=require('../models/Uploads')
 
 const Patients=require('../models/Patient')
 const PatientAuth=require('../models/PatientAuth');
@@ -28,6 +37,8 @@ const Prescriptions=require('../models/Prescriptions');
 const Patients_has_Ratings=require('../models/Patient_has_Ratings');
 
 const Ratings =require('../models/Ratings');
+const Transactions=require('../models/Transactions');
+const Uploads = require('../models/Uploads');
 
 module.exports=async()=>{
     try{
@@ -54,6 +65,12 @@ module.exports=async()=>{
         await query(Patients_has_Ratings);
         await query(Clinic);
         await query(Clinic_has_Doctor);
+        await query(Transactions);
+        await query(Helplines);
+        await query(Colors);
+        await query(Informations);
+        await query(Admins);
+        await query(Uploads);
         console.log('Successfully Created All Tables\n');
         
     }
