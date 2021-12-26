@@ -4,6 +4,7 @@ module.exports = "CREATE TABLE IF NOT EXISTS DoctorInfo (" +
     "DoctorId INT NOT NULL AUTO_INCREMENT," +
     "Name VARCHAR(255) ," +
     "Bio VARCHAR(255) ," +
+    "VideoBioUrl VARCHAR(255),"+
     "Speciality VARCHAR(255) ," +
     "treatmentAreas VARCHAR(255) ," +
     "Available VARCHAR(255) ," +

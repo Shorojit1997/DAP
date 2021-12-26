@@ -1,0 +1,28 @@
+
+body{
+    font-size: 14px;
+}
+
+/* .nav_color{
+    background-color: rgb(15, 58, 97);
+    color: white;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+} */
+
+.bannar_img{
+    background-color: rgb(84 11 11);
+    min-height:600px;
+    width: auto;
+    color: white;
+}
+
+.bannar_img h1{
+    font-size: 32px;
+    color: white;
+}

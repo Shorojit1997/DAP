@@ -10,6 +10,10 @@ const app = express();
 const port = 3000;
 
 app.use(middleware);
+
+app.set('view engine', 'ejs');
+app.set('views','views');
+
 router(app);
 
 connection.connect((error) => {
