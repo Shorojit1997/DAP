@@ -1,0 +1,86 @@
+<%- include('../common/head') %>
+    <%- include('../common/navbar') %>
+
+        <!-- login form  -->
+        <div class="d-flex flex-row  justify-content-center mt-1 mb-5">
+            <div class="card d-flex flex-column  justify-content-center align-items-center" style="width: 1000px;">
+                <div class="breadcrumb m-3 W-75">
+                    <span><a href="/en/">Dashboard</a> › </span>
+                    <span> Update Profile</span>
+                </div>
+
+
+                <div class="card d-flex flex-column  justify-content-center" style="width: 800px;">
+                    <div class="card-header">
+                        <h4>Completed Your Profile</h4>
+                    </div>
+                    <div class="progress m-1" style="width: 98%;height: 20px;">
+                        <div class="progress-bar" role="progressbar" style="width: <%=doctor.CompleteProfile %>% "
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <%= doctor.CompleteProfile%>%
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="/dashboard/profile1" method="post">
+                            <div class="mb-3 mt-3 ">
+                                <label for="name" class="form-label">Name*:</label>
+                                <input value="<%= doctor.Name %> " type="text" class="form-control" id="name"
+                                    placeholder="Enter name" required name="name">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="username" class="form-label">Username:</label>
+                                <input disabled value="<%= doctor.Username %> " type="text" class="form-control"
+                                    id="username" placeholder="Enter username" name="username">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="phone" class="form-label">Phone:</label>
+                                <input disabled value="<%= doctor.Phone %> " type="text" class="form-control" id="phone"
+                                    placeholder="Enter phone" name="phone">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input required value="<%= doctor.Email %> " type="text" class="form-control" id="email"
+                                    placeholder="Enter email" name="email">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="date" class="form-label">Date of Birth: </label>
+                                <input value="<%=doctor.DateOfBirth %>" type="date" class="form-control" id="date"
+                                    placeholder="Enter Date" min="1900-01-01" max="2090-12-31" name="date">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="gender" class="form-label">Gender: <%=doctor.Gender%></label>
+                                <select id="gender" required name="gender" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Third">Third</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="date" class="form-label">Address*: </label>
+                                <div class="w-100 justify-content-between" id="date">
+                                    <input  type="text" value="<%= doctor.Location %> " placeholder="Locations" name="location">
+                                    <input type="text" value="<%= doctor.Zip %> " placeholder="Zip" name="zip">
+                                    <input type="text" value="<%= doctor.Country %> " placeholder="Country" name="country">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <%- include('../common/tail') %>
+            </body>
+
+            </html>

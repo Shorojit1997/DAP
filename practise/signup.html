@@ -1,0 +1,98 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/custom.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- navbar section  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav_color">
+      <div class="container-fluid ">
+        <a class="navbar-brand nav_color" href="#">Doctor's</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex  mx-auto my-auto ">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">HEALTH FEED</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONSULT DOCTOR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ASK QUESTION</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">LOGIN/SIGNUP</a>
+            </li>
+
+        </div>
+
+      </div>
+    </nav>
+
+
+    <!-- login form  -->
+    <div class="d-flex justify-content-center mt-5 mb-5">
+      <div class="card " style="width: 500px;">
+        <div class="card-header">
+          <h4>Sign Up</h4>
+        </div>
+        <div class="card-body">
+          <form action="/practise/login.html">
+            <div class="mb-3 mt-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone:</label>
+              <input type="number" class="form-control" id="phone" placeholder="Enter Phone" name="pswd">
+            </div>
+            <select class="form-select" name="for_select">
+              <option value="">Select</option>
+              <option value="patient">Patients</option>
+              <option value="doctor">For Doctor</option>
+            
+            </select>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Password:</label>
+              <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+            </div>
+            <div class="mb-3">
+              <label for="confirm-pwd" class="form-label">Confirm Password:</label>
+              <input type="password" class="form-control" id="confirm-pwd" placeholder="Enter Confirm password"
+                name="pswd">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+</body>
+<script src="./js/bootstrap.bundle.min.js"></script>
+
+
+</html>

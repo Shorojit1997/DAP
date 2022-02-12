@@ -4,6 +4,8 @@ module.exports = "CREATE TABLE IF NOT EXISTS Patients (" +
     "PatientId INT NOT NULL AUTO_INCREMENT," +
     "Name VARCHAR(255) ," +
     "Email VARCHAR(255) ," +
+    "Username VARCHAR(255) ," +
+    "Password VARCHAR(255) ," +
     "AddressId INT ," +
     "Balance FLOAT ," +
     "Gender VARCHAR(255)," +

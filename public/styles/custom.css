@@ -61,3 +61,13 @@ img{
     background-color: black;
     z-index: 10000;
 }
+
+
+/* doctor pofile css  */
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #ac9a9a;
+    border-radius: 4px;
+}

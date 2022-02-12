@@ -1,0 +1,38 @@
+<%- include('./common/head') %>
+    <%- include('./common/navbar') %>
+
+        <!-- login form  -->
+        <div class="d-flex justify-content-center mt-5 mb-5">
+            <div class="card " style="width: 500px;">
+                <div class="card-header">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/login" method="post" >
+                        <div class="mb-3 mt-3">
+                            <label for="username" class="form-label">Username:</label>
+                            <input value="<%=error.userName? error.userName:''%> " type="text" class="form-control" id="username" placeholder="Enter username" name="username" >
+                            <div class="invalid-feedback <%= error.username? 'd-block':' '%>"><%=error.username%> </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password"
+                                name="password" >
+                                <div class="invalid-feedback  <%= error.password? 'd-block':' '%>"><%=error.password%></div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <%- include('./common/tail') %>
+            </body>
+
+            </html>

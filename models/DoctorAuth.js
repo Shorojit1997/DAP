@@ -1,7 +1,7 @@
 
 
 module.exports = "CREATE TABLE IF NOT EXISTS DoctorAuth (" +
-    "DoctorId INT NOT NULL," +
+    "DoctorId INT NOT NULL UNIQUE," +
     "PersonType varchar(25)," +
     "username VARCHAR(255) ," +
     "password VARCHAR(255) ," +

@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <div class="contianer">
+
+        <button class="buttonMe" onclick="showMe()">Click Me</button>
+        <div id="predictDeases">
+
+        </div>
+
+    </div>
+
+
+
+     <!-- here is the javascript code  -->
+    <script>
+
+
+        // symp sample array for symptrome 
+        var symp = ["Alargic", "Heart Deasease", "Brain Stock"];
+
+        // selectedDeases is the array which element is selected 
+        var selectedDeases = [];
+        for (var i = 0; i <= symp.length + 1; i++)selectedDeases[i] = 0;
+
+        function showMe() {
+            var predictDeases = document.getElementById('predictDeases')
+            predictDeases.style.display = "flex"
+            predictDeases.innerHTML = `
+            <h3 style="margin: 10px; display:block;">Have you more symptoms?</h3>
+            <div id="predict">
+            ${symp.map(function (data) {
+                        return `
+                    <button class="innerButton" onclick="selectMe(this)">${data}</button>
+                    `
+                    }).join(" ")}
+            </div>
+            <button class="buttonMe" style="margin:10px;">Submit</div>
+      `
+        }
+
+        function selectMe(buttonElement) {
+
+            var buttonInnerText = buttonElement.innerText;
+            buttonElement.style = "background-color: rgb(172, 104, 16);";
+            for (var i = 0; i < symp.length; i++) {
+                if (symp[i] == buttonInnerText) {
+                    selectedDeases[i] = 1;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -14,6 +14,8 @@ module.exports = "CREATE TABLE IF NOT EXISTS DoctorInfo (" +
     "VisitClinic INT ," +
     "VisitOnline INT ," +
     "Email VARCHAR(255) ," +
+    "Username VARCHAR(255) ," +
+    "Password VARCHAR(255) ," +
     "AddressId INT ," +
     "SearchTag VARCHAR(255) ," +
     "Balance FLOAT ," +
@@ -24,6 +26,8 @@ module.exports = "CREATE TABLE IF NOT EXISTS DoctorInfo (" +
     "Height INT ," +
     "Weight VARCHAR(255) ," +
     "Language VARCHAR(255)," +
+    "CompleteProfile INT," +
+    "PictureUrl VARCHAR(255)," +
     "AccountNumber VARCHAR(255) ," +
     " PRIMARY KEY (DoctorId),"+
     "foreign key (AddressId) REFERENCES  Address(AddressId));"

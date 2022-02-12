@@ -1,14 +1,15 @@
-const Home=require('./home')
+const Home=require('./home');
+const Doctor=require('./doctor');
 
 
 let routes=[
     {
-        path:'/doctor',
-        handeler:Home
+        path:'/dashboard',
+        handeler:Doctor
     },
     {
-        path:'/',
-        handeler:(req,res,next)=>{ res.send("Hello")}
+        path:'',
+        handeler:Home
     },
 
 ]
