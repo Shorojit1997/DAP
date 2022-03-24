@@ -1,0 +1,26 @@
+<%- include('../common/head') %>
+
+    <div class="container">
+        <%- include('../common/navbar') %>
+
+            <!-- login form  -->
+            <div class="d-flex justify-content-center mt-5 mb-5">
+
+                <div class="card " style="width: 500px; min-height: 400px;">
+                    <div class="card-header w-100 lead">Deposit</div>
+                    <div class="card-body d-flex align-items-center flex-column">
+                        <img src="/images/paypal.png" alt="paypal">
+                        <div class="alert alert-warning w-50 text-center">
+                            <strong>😢Failed!</strong>  Please try again.
+                        </div>
+                        <div class="row w-100 mt-5 d-flex justify-content-end">
+                            <a class="text-danger w-25" href="/">Back To Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <%- include('../common/tail') %>
+        </body>
+
+        </html>

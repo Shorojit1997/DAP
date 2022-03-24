@@ -1,0 +1,30 @@
+<%- include('../common/head') %>
+
+    <div class="container">
+        <%- include('../common/navbar') %>
+
+            <!-- login form  -->
+            <div class="d-flex justify-content-center mt-5 mb-5">
+                <div class="card " style="width: 500px;">
+                    <div class="card-header">
+                        <h4>Pay Now</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/pay" method="post">
+                            <div class="mb-3 mt-3">
+                                <label for="amount" class="form-label">Amount:</label>
+                                <input  type="number" class="form-control"
+                                    id="amount" placeholder="Enter amount" name="amount">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    <%- include('../common/tail') %>
+        </body>
+
+        </html>

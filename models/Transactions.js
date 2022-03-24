@@ -7,7 +7,7 @@ module.exports = "CREATE TABLE IF NOT EXISTS Transactions (" +
     "ClinicId INT," +
     "Status VARCHAR(255)," +
     "TNX VARCHAR(255)," +
-    "TransferTo VARCHAR(255)," +
+    "Amount FLOAT," +
     "TransferFrom VARCHAR(255)," +
     "CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
     "PRIMARY KEY(TransactionId),"+

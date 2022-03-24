@@ -68,6 +68,48 @@ img{
     padding: 8px 15px;
     margin-bottom: 20px;
     list-style: none;
-    background-color: #ac9a9a;
+    background-color: #f1eded;
     border-radius: 4px;
+}
+
+
+/* search profile css  */
+
+.forName{
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    color: rgb(99, 96, 96);
+    font-weight: bold;
+}
+.forBody{
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px;
+    color: rgb(99, 96, 96);
+}
+
+
+/* mainProfile css  */
+
+.butMain{
+    display: block;
+    color: black;
+    background-color: #f1eded;
+    width: 100%;
+    border: 1px solid #f1eded;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: left;
+    padding: 10px 15px;
+    transition: .8s;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+.butMain:hover{
+    background-color: #bebdbd;
+}
+
+.butMain:active{
+    color: green;
 }

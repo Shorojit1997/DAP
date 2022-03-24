@@ -7,7 +7,7 @@ const query = require("../database/query");
 const home = async (req, res, next) => {
 
   try {
-      CreateTable();
+   //   CreateTable();
   //  console.log(req.doctor);
     res.render('index', { title: "Welcome to Doctor's Point", user: { isLogin: false } });
   }
@@ -20,8 +20,6 @@ const home = async (req, res, next) => {
 }
 
 
-
-
 const SignupGetController = async (req, res, next) => {
 
   try {
@@ -31,7 +29,7 @@ const SignupGetController = async (req, res, next) => {
   }
   catch (e) {
 
-    console.log(e);
+    next();
   }
 }
 const LoginGetController = async (req, res, next) => {
@@ -42,7 +40,7 @@ const LoginGetController = async (req, res, next) => {
   }
   catch (e) {
 
-    console.log(e);
+    next();
   }
 }
 
@@ -99,19 +97,19 @@ const SignupPostController = async (req, res, next) => {
       // req.session.doctor = doctor[0];
       req.session.isLogin = true;
       req.session.PatientId = patient[0].PatientId;
-      console.log(patient[0]);
+  
       req.session.save((err) => {
         if (err)
           return next();
       })
-
+      res.redirect('/')
     }
 
     res.render('signup', { title: "Signup post here", user: { isLogin: req.session.isLogin } });
   }
   catch (e) {
 
-    console.log(e);
+    next();
   }
 }
 const LoginPostController = async (req, res, next) => {
@@ -141,6 +139,11 @@ const LoginPostController = async (req, res, next) => {
         });
       
     let user = await query(`select * from doctorinfo where username='${username}'`);
+    if(!user.length){
+      let user1 = await query(`select * from patients where username='${username}'`);
+      if(user1.length)
+        user=user1;
+    }
     if (!user.length) {
       error.username = "Your username does not exist!";
 
@@ -159,7 +162,10 @@ const LoginPostController = async (req, res, next) => {
     let isUser=await bcrypt.compare(password,user[0].Password);
     if(isUser){
       req.session.isLogin = true;
-      req.session.DoctorId = user[0].DoctorId;
+      if(user[0].DoctorId)
+           req.session.DoctorId = user[0].DoctorId;
+      else 
+         req.session.PatientId = user[0].PatientId;
       req.session.save((err) => {
         if (err)
           return next();
@@ -185,7 +191,7 @@ const LoginPostController = async (req, res, next) => {
   }
   catch (e) {
 
-    console.log(e);
+    next();
   }
 }
 
@@ -197,7 +203,7 @@ const LogoutController = async (req, res, next) => {
   }
   catch (e) {
 
-    console.log(e);
+    next();
   }
 }
 

@@ -4,7 +4,6 @@ const setLocals = () => {
       res.locals.doctor = req.doctor;
       res.locals.isLogin = req.session.isLogin;
       res.locals.patient=req.patient
-    
         next();
     }
 }

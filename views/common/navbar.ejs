@@ -7,8 +7,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="d-flex  mx-auto my-auto ">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form action="/doctor/search" class="d-flex  mx-auto my-auto ">
+                <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -25,12 +25,19 @@
                     <a class="nav-link" href="#">ASK QUESTION</a>
                 </li>
                 <% if(isLogin){ %>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dashboard/profile1">PROFILE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">LOGOUT</a>
-                </li>
+
+                <div class="dropdown">
+                    <button type="button" style="color: green; font-weight: bold;" class="btn  dropdown-toggle"
+                        data-bs-toggle="dropdown">
+                        <%= doctor? doctor.Name : patient.Name  %>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="<%=patient? '/dashboard/patient_profile':'/dashboard/present_consultation'%>">Profile</a></li>
+                        <li><a class="dropdown-item"
+                                href="<%= doctor?  '/dashboard/profile1':'/dashboard/patient' %> ">Update Info</a></li>
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </div>
                 <% }else{ %>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">LOGIN</a>

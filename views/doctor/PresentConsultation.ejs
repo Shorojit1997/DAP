@@ -1,0 +1,62 @@
+<%- include('../common/head') %>
+
+    <div class="container">
+        <%- include('../common/navbar') %>
+
+            <div class="row mt-3 mb-3">
+                <div class="col-3" style="border-right: 1px solid rgb(209, 201, 201);">
+                    <%- include('../common/sideBarList') %>
+
+                </div>
+                <div class="col-9">
+                    <div class="d-flex justify-content-center flex-column">
+                        <div style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
+                            Balance: $<%= doctor.Balance %>
+                        </div>
+                        <div id="viewId">
+                            <table class="table table-bordered ">
+                                <thead class=" table-dark">
+                                    <tr>
+                                        <th>Patient_Name</th>
+                                        <th>Problem</th>
+                                        <th>VisitAt</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% AppointmentList.forEach(element=> { %>
+                                        <tr>
+                                            <td style="width: 80px;">
+                                                <%= element.Name %>
+                                            </td>
+                                            <td style="text-align: justify;">
+                                                <%= element.ProblemDesctiption %>
+                                            </td>
+                                            <td style="width: 50px;">
+                                                <%= element.VisitAt %>
+                                            </td>
+
+                                            <td style="width: 50px;">
+                                                <%= new Date(element.Date).toLocaleDateString() %>
+                                            </td>
+                                            <td style="width: 40px;"><a href="/dashboard/view/prescriptions/<%=element.AppointmentId%> "
+                                                    class="btn btn-sm btn-info">View</a></td>
+
+                                        </tr>
+                                        <% }) %>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+    <%- include('../common/tail') %>
+        <script src="/script/mainDoctorProfile.js"></script>
+        </body>
+
+        </html>

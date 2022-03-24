@@ -1,0 +1,93 @@
+<%- include('../common/head') %>
+
+    <div class="container">
+        <%- include('../common/navbar') %>
+
+            <div class="row mt-3 mb-3">
+                <div id="myButton" class="col-3  d-flex flex-column "
+                    style="overflow-y: scroll; overflow-x: hidden; height: 700px; border-right: 2px solid rgb(144, 135, 135);">
+
+                    <!-- for doctor  -->
+                    <a class="btn btn-dark mt-1 text-start" data-bs-toggle="collapse" href="#collapseExample"
+                        role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Current Appointments
+                    </a>
+
+                    <div class="collapse" id="collapseExample">
+                        <div class="card m-2 card-body">
+                            <button class="btn btn-sm btn-outline-dark">Dr. <%= doctor.Name %> </button>
+                            <hr class="dropdown-divider">
+                            <% CurrentAppointments.forEach(element=> { %>
+                                <button class="btn btn-sm btn-light">Dr. <%= element.Name %> </button>
+                                <% }) %>
+
+                        </div>
+                    </div>
+
+                    <!-- History  -->
+
+                    <a class="btn btn-dark mt-1 text-start" data-bs-toggle="collapse" href="#collapseExample1"
+                        role="button" aria-expanded="false" aria-controls="collapseExample">
+                        History
+                    </a>
+
+                    <div class="collapse" id="collapseExample1">
+                        <div class="card m-2 card-body">
+                            <%if(MedicleHistory.length>0){ MedicleHistory.forEach(element => { %>
+                                <button class="btn btn-sm btn-light">#ST100-<%= element.appointmentId %> </button>
+                                <% })}else{ %>
+
+                                    <div>Ops!! Empty.</div>
+                                    <% } %>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Prescriptions  -->
+
+                    <a class="btn btn-dark mt-1 text-start" data-bs-toggle="collapse" href="#collapseExample2"
+                        role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Prescriptions
+                    </a>
+
+                    <div class="collapse" id="collapseExample2">
+                        <div class="card m-2 card-body">
+                            <%if(PrescriptionHistory.length>0){ MedicleHistory.forEach(element => { %>
+                                <button class="btn btn-sm btn-light">#ST100-<%= element.PrescriptionId %> </button>
+                                <% })}else{ %>
+
+                                    <div>Ops!! Empty.</div>
+                                    <% } %>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Reports  -->
+
+                    <a class="btn btn-dark mt-1 text-start">
+                        Reports
+                    </a>
+
+
+                </div>
+                <div class="col-9">
+                    <div class="d-flex justify-content-center flex-column">
+                        <div style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
+                            Dr <%= doctor.Name %>
+                        </div>
+                        <div id="viewId">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+    <%- include('../common/tail') %>
+        <script src="/script/mainDoctorProfile.js"></script>
+        </body>
+
+        </html>

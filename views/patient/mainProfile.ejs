@@ -1,0 +1,61 @@
+<%- include('../common/head') %>
+
+    <div class="container">
+        <%- include('../common/navbar') %>
+
+            <div class="row mt-3 mb-3">
+                <div class="col-3" style="border-right: 1px solid rgb(209, 201, 201);">
+                    <div class="lead m-2" style="border-bottom: 1px solid rgb(209, 201, 201);">
+                        <h5>Your Profile</h5>
+                    </div>
+                    <div  href="/dashboard/patient_profile" class="butMain">Present Consultation</div>
+                    <div class="butMain">Previous Consultation</div>
+                    <div class="butMain">Report</div>
+                    <div class="butMain"><a style="text-decoration: none; color: black; width: 100%;"
+                            href="/pay">Deposit</a></div>
+                    <div onclick="transactionList()" class="butMain">Transaction</div>
+
+
+                </div>
+                <div class="col-9">
+                    <div class="d-flex justify-content-center flex-column">
+                        <div style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
+                            Balance: $<%= patient.Balance %>
+                        </div>
+                        <div id="viewId">
+                            <table class="table table-bordered">
+                                <thead class=" table-dark">
+                                    <tr>
+                                        <th>Doctor_Name</th>
+                                        <th>Problem</th>
+                                        <th>VisitAt</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% AppointmentList.forEach(element => { %>
+                                        <tr>
+                                            <td><%= element.Name %>  </td>
+                                            <td><%= element.ProblemDesctiption %></td>
+                                            <td><%= element.VisitAt %></td>
+                                            <td><%= element.Date? element.Date:"Comming." %></td>
+                                            <td><%= element.Status %></td>
+                                        </tr>
+                                    <% }) %>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
+
+    <%- include('../common/tail') %>
+        <script src="/script/depositHandeler.js"></script>
+        </body>
+
+        </html>

@@ -31,7 +31,7 @@ const loginUserbinding = () => {
             }
             else {
                 info = await query(`select * from patients where PatientId='${req.session.PatientId}'`);
-                req.patients = info[0];
+                req.patient = info[0];
             }
             next();
         }

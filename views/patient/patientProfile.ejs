@@ -16,47 +16,49 @@
                     <div class="card-header">
                         <h4>Completed Your Profile</h4>
                     </div>
-                    <div class="progress m-1" style="width: 98%;height: 20px;">
-                        <div class="progress-bar <%= doctor.CompleteProfile<50? 'bg-warning' : doctor.CompleteProfile<75? 'bg-info':'bg-success' %>  " role="progressbar" style="width: <%=doctor.CompleteProfile %>% "
-                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                            <%= doctor.CompleteProfile%>%
-                        </div>
-                    </div>
 
                     <div class="card-body">
-                        <form action="/dashboard/profile1" method="post">
+                        <form action="/dashboard/patient" method="post">
+                            <!-- name  -->
                             <div class="mb-3 mt-3 ">
                                 <label for="name" class="form-label">Name*:</label>
-                                <input value="<%= doctor.Name %> " type="text" class="form-control" id="name"
+                                <input value="<%= patient.Name %> " type="text" class="form-control" id="name"
                                     placeholder="Enter name" required name="name">
                                 <div class="invalid-feedback"> </div>
                             </div>
+
+                            <!-- username  -->
                             <div class="mb-3 mt-3">
                                 <label for="username" class="form-label">Username:</label>
-                                <input disabled value="<%= doctor.Username %> " type="text" class="form-control"
+                                <input disabled value="<%= patient.Username %> " type="text" class="form-control"
                                     id="username" placeholder="Enter username" name="username">
                                 <div class="invalid-feedback"> </div>
                             </div>
+                            <!-- phone  -->
                             <div class="mb-3 mt-3">
                                 <label for="phone" class="form-label">Phone:</label>
-                                <input disabled value="<%= doctor.Phone %> " type="text" class="form-control" id="phone"
+                                <input disabled value="<%= patient.Phone %> " type="text" class="form-control" id="phone"
                                     placeholder="Enter phone" name="phone">
                                 <div class="invalid-feedback"> </div>
                             </div>
+                            <!-- email  -->
                             <div class="mb-3 mt-3">
                                 <label for="email" class="form-label">Email:</label>
-                                <input required value="<%= doctor.Email %> " type="text" class="form-control" id="email"
+                                <input required value="<%= patient.Email %> " type="text" class="form-control" id="email"
                                     placeholder="Enter email" name="email">
                                 <div class="invalid-feedback"> </div>
                             </div>
+                            <!-- birth date  -->
                             <div class="mb-3 mt-3">
                                 <label for="date" class="form-label">Date of Birth: </label>
-                                <input value="<%=doctor.DateOfBirth %>" type="date" class="form-control" id="date"
+                                <input value="<%=patient.DateOfBirth %>" type="date" class="form-control" id="date"
                                     placeholder="Enter Date" min="1900-01-01" max="2090-12-31" name="date">
                                 <div class="invalid-feedback"> </div>
                             </div>
+
+                            <!-- gender  -->
                             <div class="mb-3 mt-3">
-                                <label for="gender" class="form-label">Gender: <%=doctor.Gender%></label>
+                                <label for="gender" class="form-label">Gender: <%=patient.Gender%></label>
                                 <select id="gender" required name="gender" class="form-select form-select-lg mb-3"
                                     aria-label=".form-select-lg example">
 
@@ -65,20 +67,28 @@
                                     <option value="Third">Third</option>
                                 </select>
                             </div>
+                            <!-- address  -->
                             <div class="mb-3 mt-3">
                                 <label for="date" class="form-label">Address*: </label>
                                 <div class="w-100 justify-content-between" id="date">
-                                    <input type="text" value="<%= doctor.Location %> " placeholder="Locations"
+                                    <input type="text" value="<%= patient.Location %> " placeholder="Locations"
                                         name="location">
-                                    <input type="text" value="<%= doctor.Zip %> " placeholder="Zip" name="zip">
-                                    <input type="text" value="<%= doctor.Country %> " placeholder="Country"
+                                    <input type="text" value="<%= patient.Zip %> " placeholder="Zip" name="zip">
+                                    <input type="text" value="<%= patient.Country %> " placeholder="Country"
                                         name="country">
                                 </div>
+                            </div>
+                             <!-- Account Number  -->
+                             <div class="mb-3 mt-3">
+                                <label for="AccountNumber" class="form-label">Account Number:</label>
+                                <input required value="<%= patient.AccountNumber %> " type="text" class="form-control"
+                                    id="AccountNumber" placeholder="Enter language " name="AccountNumber">
+                                <div class="invalid-feedback"> </div>
                             </div>
                             <!-- blood group  -->
                             <div class="mb-3 mt-3">
                                 <label for="bloodgroup" class="form-label">Blood Group:</label>
-                                <input required value="<%= doctor.BloodGroup %> " type="text" class="form-control"
+                                <input required value="<%= patient.BloodGroup %> " type="text" class="form-control"
                                     id="bloodgroup" placeholder="Enter Blood Group" name="bloodgroup">
                                 <div class="invalid-feedback"> </div>
                             </div>
@@ -86,7 +96,7 @@
                             <!-- Height  -->
                             <div class="mb-3 mt-3">
                                 <label for="height" class="form-label">Height in inch:</label>
-                                <input required value="<%= doctor.Height %> " type="text" class="form-control"
+                                <input required value="<%= patient.Height %> " type="text" class="form-control"
                                     id="height" placeholder="Enter height in inch" name="height">
                                 <div class="invalid-feedback"> </div>
                             </div>
@@ -94,7 +104,7 @@
                             <!-- Weight  -->
                             <div class="mb-3 mt-3">
                                 <label for="weight" class="form-label">Weight in Kilo:</label>
-                                <input required value="<%= doctor.Weight %> " type="text" class="form-control"
+                                <input required value="<%= patient.Weight %> " type="text" class="form-control"
                                     id="weight" placeholder="Enter weight " name="weight">
                                 <div class="invalid-feedback"> </div>
                             </div>
@@ -102,20 +112,12 @@
                             <!-- Languages  -->
                             <div class="mb-3 mt-3">
                                 <label for="language" class="form-label">Language:</label>
-                                <input required value="<%= doctor.Language %> " type="text" class="form-control"
+                                <input required value="<%= patient.Language %> " type="text" class="form-control"
                                     id="language" placeholder="Enter language " name="language">
                                 <div class="invalid-feedback"> </div>
                             </div>
-
-
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
-                        <% if(doctor.CompleteProfile>50){ %>
-                            <div class="d-flex justify-content-end w-100">
-                                <a href="/dashboard/profile1?pageNumber=2">Next</a>
-                            </div>
-                            <% } %>
-
                     </div>
 
                 </div>

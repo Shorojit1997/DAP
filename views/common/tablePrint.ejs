@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center flex-column">
+    <div style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
+       <%= table.title %>
+    </div>
+    <div id="viewId">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <% table.header.forEach(element => { %>
+                        <th><%= element %> </th>
+                    <% }) %>
+                </tr>
+            </thead>
+            <tbody>
+               <% table.rows.forEach(row => { %>
+                   <tr>
+                     <% row.forEach(col => { %>
+                       <td><%= col %> </td>
+                     <% }) %>
+
+                    </tr>
+               <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

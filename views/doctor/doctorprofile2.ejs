@@ -1,10 +1,11 @@
 <%- include('../common/head') %>
+<div class="container">
     <%- include('../common/navbar') %>
 
         <!-- login form  -->
         <div class="d-flex flex-row  justify-content-center mt-1 mb-5">
             <div class="card d-flex flex-column  justify-content-center align-items-center" style="width: 1000px;">
-                <div class="breadcrumb m-3 W-75">
+                <div class="breadcrumb">
                     <span><a href="/en/">Dashboard</a> › </span>
                     <span> Update Profile</span>
                 </div>
@@ -14,6 +15,8 @@
                     <div class="card-header">
                         <h4>Completed Your Profile</h4>
                     </div>
+
+
                     <div class="progress m-1" style="width: 98%;height: 20px;">
                         <div class="progress-bar" role="progressbar" style="width: <%=doctor.CompleteProfile %>% "
                             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -22,64 +25,97 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="/dashboard/profile1" method="post">
+                        <form action="/dashboard/profile1?pageNumber=2" method="post">
+                            <!-- Education  -->
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Educations*: </label>
+                                <textarea name="educations" class="form-control" id="exampleFormControlTextarea1" rows="3"><%= doctor._Option%></textarea>
+                              </div>
+                              <!-- Awards  -->
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Awards: </label>
+                                <textarea name="awards" class="form-control" id="exampleFormControlTextarea1" rows="3"><%= doctor.Awards%></textarea>
+                              </div>
+                              <!-- speciality  -->
                             <div class="mb-3 mt-3 ">
-                                <label for="name" class="form-label">Name*:</label>
-                                <input value="<%= doctor.Name %> " type="text" class="form-control" id="name"
-                                    placeholder="Enter name" required name="name">
+                                <label for="speciality" class="form-label">Speciality*:</label>
+                                <input value="<%= doctor.Speciality %> " type="text" class="form-control" id="speciality"
+                                    placeholder="Enter your working area" required name="speciality">
                                 <div class="invalid-feedback"> </div>
                             </div>
+                            <!-- Treatment Area  -->
                             <div class="mb-3 mt-3">
-                                <label for="username" class="form-label">Username:</label>
-                                <input disabled value="<%= doctor.Username %> " type="text" class="form-control"
-                                    id="username" placeholder="Enter username" name="username">
+                                <label for="treatmentArea" class="form-label">Treatment Area:</label>
+                                <input  value="<%= doctor.treatmentAreas %> " type="text" class="form-control"
+                                    id="treatmentArea" placeholder="Enter Treatment Area" name="treatmentArea">
                                 <div class="invalid-feedback"> </div>
                             </div>
-                            <div class="mb-3 mt-3">
-                                <label for="phone" class="form-label">Phone:</label>
-                                <input disabled value="<%= doctor.Phone %> " type="text" class="form-control" id="phone"
-                                    placeholder="Enter phone" name="phone">
-                                <div class="invalid-feedback"> </div>
-                            </div>
-                            <div class="mb-3 mt-3">
-                                <label for="email" class="form-label">Email:</label>
-                                <input required value="<%= doctor.Email %> " type="text" class="form-control" id="email"
-                                    placeholder="Enter email" name="email">
-                                <div class="invalid-feedback"> </div>
-                            </div>
-                            <div class="mb-3 mt-3">
-                                <label for="date" class="form-label">Date of Birth: </label>
-                                <input value="<%=doctor.DateOfBirth %>" type="date" class="form-control" id="date"
-                                    placeholder="Enter Date" min="1900-01-01" max="2090-12-31" name="date">
-                                <div class="invalid-feedback"> </div>
-                            </div>
-                            <div class="mb-3 mt-3">
-                                <label for="gender" class="form-label">Gender: <%=doctor.Gender%></label>
-                                <select id="gender" required name="gender" class="form-select form-select-lg mb-3"
-                                    aria-label=".form-select-lg example">
+                            <!-- Bio  -->
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Bio*: </label>
+                                <textarea name="bio" class="form-control" id="exampleFormControlTextarea1" rows="3"><%= doctor.Bio %>  </textarea>
+                              </div>
 
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Third">Third</option>
+                              <!-- video url on youtube -->
+                            <div class="mb-3 mt-3">
+                                <label for="videoBioUrl" class="form-label">Video Bio Youtube Link:</label>
+                                <input required value="<%= doctor.VideoBioUrl %> " type="text" class="form-control" id="videoBioUrl"
+                                    placeholder="Enter Video Link" name="videoBioUrl">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                            <!-- online visit  -->
+                            <div class="mb-3 mt-3">
+                                <label for="onlineVisit" class="form-label">Online Visit Rate: </label>
+                                <input value="<%=doctor.VisitOnline %>" type="text" class="form-control" id="onlineVisit"
+                                    placeholder="Enter "  name="onlineVisit">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <!-- Clinic visit  -->
+                            <div class="mb-3 mt-3">
+                                <label for="clinicVisit" class="form-label">Clinic Visit Rate: </label>
+                                <input value="<%=doctor.VisitClinic %>" type="text" class="form-control" id="clinicVisit"
+                                    placeholder="Enter "  name="clinicVisit">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <!-- Account Number  -->
+                            <div class="mb-3 mt-3">
+                                <label for="accountNumber" class="form-label">Account Number: </label>
+                                <input value="<%=doctor.AccountNumber%>" type="text" class="form-control" id="accountNumber"
+                                    placeholder="Enter "  name="accountNumber">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+
+                            <!-- Search Tag  -->
+                            <div class="mb-3 mt-3">
+                                <label for="SearchTag" class="form-label">Search Tag: </label>
+                                <input value="<%=doctor.SearchTag%>" type="text" class="form-control" id="SearchTag"
+                                    placeholder="Enter "  name="SearchTag">
+                                <div class="invalid-feedback"> </div>
+                            </div>
+                            
+                            <div class="mb-3 mt-3">
+                                <label for="Available" class="form-label">Availability: <%=doctor.Available%></label>
+                                <select id="Available" required name="Available" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
-                            <div class="mb-3 mt-3">
-                                <label for="date" class="form-label">Address*: </label>
-                                <div class="w-100 justify-content-between" id="date">
-                                    <input  type="text" value="<%= doctor.Location %> " placeholder="Locations" name="location">
-                                    <input type="text" value="<%= doctor.Zip %> " placeholder="Zip" name="zip">
-                                    <input type="text" value="<%= doctor.Country %> " placeholder="Country" name="country">
-                                </div>
-                            </div>
+                            
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+                        <div class="d-flex justify-content-end w-100" >
+                            <a href="/dashboard/profile1">Previous</a>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
         </div>
-
+    </div>
         <%- include('../common/tail') %>
             </body>
 

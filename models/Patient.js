@@ -7,9 +7,9 @@ module.exports = "CREATE TABLE IF NOT EXISTS Patients (" +
     "Username VARCHAR(255) ," +
     "Password VARCHAR(255) ," +
     "AddressId INT ," +
-    "Balance FLOAT ," +
+    "Balance FLOAT DEFAULT 0," +
     "Gender VARCHAR(255)," +
-    "DateOfBirth DATETIME(4) ," +
+    "DateOfBirth VARCHAR(255) ," +
     "Phone VARCHAR(255) ," +
     "BloodGroup VARCHAR(255) ," +
     "Height INT ," +

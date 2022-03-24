@@ -1,11 +1,16 @@
 const Home=require('./home');
 const Doctor=require('./doctor');
+const Patient=require('./patient');
 
 
 let routes=[
     {
         path:'/dashboard',
         handeler:Doctor
+    },
+    {
+        path:'/dashboard',
+        handeler:Patient
     },
     {
         path:'',

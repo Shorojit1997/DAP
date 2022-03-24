@@ -1,206 +1,225 @@
 <%- include('./common/head') %>
-<%- include('./common/navbar')  %> 
 
-    <!-- banner section  -->
-    <div class="bannar_img">
-        <div class="inner">
-            <h1>Stay at Home. Consult Doctors Online. <strong>#BANGLADESH</strong></h1>
-            <form class="d-flex w-75">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <h3>Any emmargiency notice </h3>
-        </div>
-    </div>
-    <!-- most search topics -->
-
-    <div class="row d-flex align-items-center p-2">
-        <div class="lead fs-2 fw-bold ">
-            Most Searched Medicle Conditions
-        </div>
-        <div class="d-flex flex-wrap align-items-center">
-            <div class="d-inline-block back "> Vitamin D Defienciency </div>
-            <div class="d-inline-block back "> Sore Throat </div>
-            <div class="d-inline-block back "> PCOS </div>
-            <div class="d-inline-block back "> LOW Hemoglobin</div>
-            <div class="d-inline-block back "> Asthema </div>
-            <div class="d-inline-block back "> AM I Pregnent </div>
-            <div class="d-inline-block back "> Vomating </div>
-            <div class="d-inline-block back "> Kidney Stone </div>
-            <div class="d-inline-block back "> Kidney Failure </div>
-            <div class="d-inline-block back "> Prostrate Enlargement </div>
-        </div>
-
-    </div>
+        <div class="container">
+            <%- include('./common/navbar') %>
 
 
-
-    <!-- question and ans -->
-
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="col-12">
-                <h1>QUESTIONS & ANSWERS</h1>
+            <!-- banner section  -->
+            <div class="bannar_img">
+                <div class="inner">
+                    <h1>Stay at Home. Consult Doctors Online. <strong>#BANGLADESH</strong></h1>
+                    <form action="/doctor/search" method="get" class="d-flex w-75">
+                        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <h3>Any emmargiency notice </h3>
+                </div>
             </div>
-            <div class="col-12">
-                <p>Thousend of Question answered by doctors</p>
+            <!-- most search topics -->
+
+            <div class="row d-flex align-items-center p-2">
+                <div class="lead fs-2 fw-bold ">
+                    Most Searched Medicle Conditions
+                </div>
+                <div class="d-flex flex-wrap align-items-center">
+                    <div class="d-inline-block back "> Vitamin D Defienciency </div>
+                    <div class="d-inline-block back "> Sore Throat </div>
+                    <div class="d-inline-block back "> PCOS </div>
+                    <div class="d-inline-block back "> LOW Hemoglobin</div>
+                    <div class="d-inline-block back "> Asthema </div>
+                    <div class="d-inline-block back "> AM I Pregnent </div>
+                    <div class="d-inline-block back "> Vomating </div>
+                    <div class="d-inline-block back "> Kidney Stone </div>
+                    <div class="d-inline-block back "> Kidney Failure </div>
+                    <div class="d-inline-block back "> Prostrate Enlargement </div>
+                </div>
+
             </div>
-            <div class="row">
-                <!-- single item  -->
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <div class="row p-2">
-                            <div class="col-8">
-                                <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had u...
-                                </h5>
-                                <div class="row">
-                                    <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center"><img
-                                            src="./images/bannar.jpg" width="50px" height="50px" alt="image_name"></div>
-                                    <div class="col-10">
-                                        <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
-                                        <p class="small">Gynaecologist, Sri Ganganagar</p>
+
+
+
+            <!-- question and ans -->
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="col-12">
+                        <h1>QUESTIONS & ANSWERS</h1>
+                    </div>
+                    <div class="col-12">
+                        <p>Thousend of Question answered by doctors</p>
+                    </div>
+                    <div class="row">
+                        <!-- single item  -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <div class="row p-2">
+                                    <div class="col-8">
+                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
+                                            u...
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
+                                                <img src="./images/bannar.jpg" width="50px" height="50px"
+                                                    alt="image_name"></div>
+                                            <div class="col-10">
+                                                <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
+                                                <p class="small">Gynaecologist, Sri Ganganagar</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-4">
-                                <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
-                            </div>
-                        </div>
-                        <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
-                                deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <div class="row p-2">
-                            <div class="col-8">
-                                <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had u...
-                                </h5>
-                                <div class="row">
-                                    <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center"><img
-                                            src="./images/bannar.jpg" width="50px" height="50px" alt="image_name"></div>
-                                    <div class="col-10">
-                                        <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
-                                        <p class="small">Gynaecologist, Sri Ganganagar</p>
-                                    </div>
+                                <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
+                                        deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
-                            </div>
                         </div>
-                        <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
-                                deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <div class="row p-2">
-                            <div class="col-8">
-                                <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had u...
-                                </h5>
-                                <div class="row">
-                                    <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center"><img
-                                            src="./images/bannar.jpg" width="50px" height="50px" alt="image_name"></div>
-                                    <div class="col-10">
-                                        <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
-                                        <p class="small">Gynaecologist, Sri Ganganagar</p>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <div class="row p-2">
+                                    <div class="col-8">
+                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
+                                            u...
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
+                                                <img src="./images/bannar.jpg" width="50px" height="50px"
+                                                    alt="image_name"></div>
+                                            <div class="col-10">
+                                                <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
+                                                <p class="small">Gynaecologist, Sri Ganganagar</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-4">
-                                <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
-                            </div>
-                        </div>
-                        <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
-                                deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <div class="row p-2">
-                            <div class="col-8">
-                                <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had u...
-                                </h5>
-                                <div class="row">
-                                    <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center"><img
-                                            src="./images/bannar.jpg" width="50px" height="50px" alt="image_name"></div>
-                                    <div class="col-10">
-                                        <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
-                                        <p class="small">Gynaecologist, Sri Ganganagar</p>
-                                    </div>
+                                <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
+                                        deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <div class="row p-2">
+                                    <div class="col-8">
+                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
+                                            u...
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
+                                                <img src="./images/bannar.jpg" width="50px" height="50px"
+                                                    alt="image_name"></div>
+                                            <div class="col-10">
+                                                <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
+                                                <p class="small">Gynaecologist, Sri Ganganagar</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
+                                    </div>
+                                </div>
+                                <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
+                                        deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
-                                deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <div class="row p-2">
+                                    <div class="col-8">
+                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
+                                            u...
+                                        </h5>
+                                        <div class="row">
+                                            <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
+                                                <img src="./images/bannar.jpg" width="50px" height="50px"
+                                                    alt="image_name"></div>
+                                            <div class="col-10">
+                                                <p class="text-danger fw-bold p-0 m-0 small">Dr. Upsana Setia</p>
+                                                <p class="small">Gynaecologist, Sri Ganganagar</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="./images/bannar.jpg" width="100" height="100px" alt="image_name">
+                                    </div>
+                                </div>
+                                <div class="row"><span class="fs-5 d-inline-block">Lorem ipsum dolor sit amet
+                                        consectetur
+                                        adipisicing elit. Repellendus saepe voluptate cumque ducimus magnam laudantium
+                                        deleniti excepturi suscipit pariatur doloremque.</span> <span>..continue</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
 
 
+
+                    </div>
+                </div>
             </div>
+            <!-- question and ans -->
+
+            <!-- videos  -->
+            <div class="row mt-5 mb-5">
+                <div class="col-12">
+                    <div class="col-12">
+                        <h1>VIDEOS</h1>
+                    </div>
+                    <div class="col-12">
+                        <p>Top doctors explain complex health issues</p>
+                    </div>
+                    <div class="row">
+                        <!-- single item  -->
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <iframe height="350px"
+                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <iframe height="350px"
+                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <iframe height="350px"
+                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="card m-2 p-2">
+                                <iframe height="350px"
+                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
+                                </iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
-    </div>
-    <!-- question and ans -->
-
-    <!-- videos  -->
-    <div class="row mt-5 mb-5">
-        <div class="col-12">
-            <div class="col-12">
-                <h1>VIDEOS</h1>
-            </div>
-            <div class="col-12">
-                <p>Top doctors explain complex health issues</p>
-            </div>
-            <div class="row">
-                <!-- single item  -->
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <iframe height="350px" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <iframe height="350px" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <iframe height="350px" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-6">
-                    <div class="card m-2 p-2">
-                        <iframe height="350px" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                        </iframe>
-                    </div>
-                </div>
-
-            </div>
         </div>
-    </div>
 
+        <%- include('./common/tail') %>
+            </body>
 
-
-    </div>
-
-
-    <%- include('./common/tail') %>
-        </body>
-
-        </html>
+            </html>

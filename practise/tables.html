@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="margin-left: 30px;">
+    <div style="padding: 10px; margin: 15px;">
+        <input type="text" id="search" placeholder="Search here">
+        <button onclick="search()">Search</button>
+    </div>
+    <table borded id="mytable">
+
+    </table>
+
+    <input type="text" id="name" placeholder="Enter your Name">
+    <input type="text" id="phone" placeholder="Enter your Phone">
+
+    <div id="btn"></div>
+    <button onclick="adding()">Add</button>
+
+</body>
+<script>
+    var arrBody = [];
+    var searchOrder = "ASC";
+
+    function print(ar) {
+        var table = document.getElementById('mytable');
+        table.innerHTML =
+            `<tr> 
+                <th style="cursor:pointer;" onclick="sotingByName()">Name </th> 
+                <th>Phone</th>  
+                <th>Action</th></tr> 
+        ${ar.map(function (row, index) {
+                return `
+            <tr >
+                <td>${row.name} </td>
+                <td>${row.phone} <span> </span></td>
+                <td> <button id='${index}' onclick="update(this)"> Update </button> </td>
+                <td> <button id='${index}' onclick="deletef(this)"> Delete </button> </td>
+            </tr>
+            `
+            }).join(" ")}`
+    }
+
+    function adding() {
+        var name = document.getElementById('name');
+        var phone = document.getElementById('phone');
+        var ap = {
+            name: name.value,
+            phone: phone.value
+        }
+        name.value = '';
+        phone.value = '';
+        arrBody = [...arrBody, ap];
+        print(arrBody);
+    }
+    function update(cur) {
+
+        var name = arrBody[cur.id].name;
+        var phone = arrBody[cur.id].phone;
+
+        var inputName = document.getElementById('name');
+        var inputphone = document.getElementById('phone');
+        inputName.value = name;
+        inputphone.value = phone
+
+        var btn = document.getElementById("btn");
+        btn.innerHTML = `<button onclick="updateInfo(${cur.id})">Save</button>`
+
+
+    }
+    function updateInfo(id) {
+        var inputName = document.getElementById('name');
+        var inputphone = document.getElementById('phone');
+        arrBody[id].name = inputName.value;
+        arrBody[id].phone = inputphone.value;
+        var btn = document.getElementById("btn");
+        btn.innerHTML = "";
+        print(arrBody);
+    }
+
+    function deletef(cur) {
+        arrBody=arrBody.filter(function (d, index) {
+            return cur.id != index;
+        });
+        print(arrBody)
+    }
+    function search() {
+
+        var searchTag = document.getElementById('search');
+        let nn = arrBody.find(function (item) {
+            return item.name === searchTag.value;
+        });
+        print([nn]);
+    }
+
+    
+
+    function sotingByName() {
+
+      
+        let newAr = arrBody.sort(function (a, b) {
+            if (searchOrder == "ASC") {
+                if (a.name > b.name)
+                    return -1;
+                else
+                    return 1;
+            }
+            else {
+                if (a.name < b.name)
+                    return -1;
+                else
+                    return 1;
+            }
+        });
+
+        if (searchOrder == "ASC") {
+            searchOrder = "DESC";
+        }
+        else
+            searchOrder = "ASC"
+        
+        print(newAr);
+
+    }
+
+
+</script>
+
+</html>
