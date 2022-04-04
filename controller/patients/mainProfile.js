@@ -3,8 +3,19 @@ const query = require("../../database/query");
 
 const MainProfileGetController = async (req, res, next) => {
 
+    let {Status}=req.query;
+    let _query;
+    
+    if(Status=='Previous'){
+       
+        _query=`select appointments.AppointmentId, DoctorInfo.Name,appointments.ProblemDesctiption,appointments.VisitAt,appointments.Date,appointments.Status from appointments cross join DoctorInfo  where DoctorInfo.DoctorId=appointments.DoctorId and appointments.Status='Completed' and appointments.PatientId='${req.patient.PatientId}'`;
+    }
+    else{
+        _query=`select appointments.AppointmentId, DoctorInfo.Name,appointments.ProblemDesctiption,appointments.VisitAt,appointments.Date,appointments.Status from appointments cross join DoctorInfo  where DoctorInfo.DoctorId=appointments.DoctorId and (appointments.Status='Requesting' or appointments.Status='Accepted') and appointments.PatientId='${req.patient.PatientId}'`;
+    }
+
     try {
-        let Appointment= await query(`select DoctorInfo.Name,appointments.ProblemDesctiption,appointments.VisitAt,appointments.Date,appointments.Status from appointments cross join DoctorInfo  where DoctorInfo.DoctorId=appointments.DoctorId and PatientId='${req.patient.PatientId}'`)
+        let Appointment= await query(_query);
         return res.render('./patient/mainProfile', { title: "Search Doctor",AppointmentList:Appointment });
     }
     catch (e) {
@@ -54,8 +65,6 @@ const TransactionGetController=async(req,res,next)=>{
 
 const AppointmentPostController=async(req,res,next)=>{
 
-   
-
  try {
 
      let transactionList=await query(`select * from transactions ORDER BY CREATED_AT DESC  limit ${lower}, ${uper}`);
@@ -72,7 +81,54 @@ const AppointmentPostController=async(req,res,next)=>{
 
 }
 
+const PrescriptionDetailsGetController = async (req, res, next) => {
+
+    const { AppointmentId } = req.query;
+ 
+  
+    try {
+  
+      let AppointmentDetails = await query(`select * from appointments where appointmentId=${AppointmentId}`);
+      let DoctorName = await query(`select  Name from doctorinfo where doctorId=( select DoctorId from appointments where appointmentId=${AppointmentId});`);
+  
+  
+      let MedicleReports = await query(`select * from Medicle_reports where PrescriptionId=( select PrescriptionId from Prescriptions where AppointmentId=${AppointmentId})  limit 30;`);
+  
+      let Medicine = await query(`select * from Medicines where PrescriptionId=( select PrescriptionId from Prescriptions where AppointmentId=${AppointmentId})  limit 30;`);
+  
+  
+      return res.json(
+        {
+          data: {
+            DoctorName,
+            MedicleReports,
+            Medicine,
+            AppointmentDetails,
+            AppointmentId,
+            Status: ""
+          },
+          success: true
+        });
+  
+    }
+    catch (e) {
+      return res.json(
+        {
+          success: false
+        });
+  
+    }
+  }
+  
+  
 
 
 
-module.exports = { MainProfilePostController, MainProfileGetController,TransactionGetController,AppointmentPostController }
+
+module.exports = { 
+    PrescriptionDetailsGetController,
+    MainProfilePostController, 
+    MainProfileGetController,
+    TransactionGetController,
+    AppointmentPostController 
+}

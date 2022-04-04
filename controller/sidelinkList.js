@@ -7,7 +7,7 @@ const DoctorSidebar = {
             title: 'Present Consultation'
         },
         {
-            link: '/dashboard/doctor_profile',
+            link: '/dashboard/previous_consultation',
             title: 'Previous Consultation'
         },
         {

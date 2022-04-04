@@ -8,7 +8,7 @@ module.exports = "CREATE TABLE IF NOT EXISTS Medicines (" +
     "Duration VARCHAR(255)," +
     "Parday VARCHAR(255)," +
     "Type VARCHAR(255)," +
-    "Meal DATETIME(4) ," +
+    "Note DATETIME(4) ," +
     "CREATED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
     "PRIMARY KEY (MedicineId)," +
     "FOREIGN KEY (PrescriptionId) REFERENCES  Prescriptions(PrescriptionId)," +

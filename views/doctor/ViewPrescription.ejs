@@ -15,7 +15,8 @@
 
                     <div class="collapse" id="collapseExample">
                         <div class="card m-2 card-body">
-                            <button class="btn btn-sm btn-outline-dark">Dr. <%= doctor.Name %> </button>
+                            <a href="/dashboard/view/prescriptions/<%=AppointmentId%> "
+                                class="btn btn-sm btn-outline-dark">Dr. <%= doctor.Name %> </a>
                             <hr class="dropdown-divider">
                             <% CurrentAppointments.forEach(element=> { %>
                                 <button class="btn btn-sm btn-light">Dr. <%= element.Name %> </button>
@@ -34,7 +35,8 @@
                     <div class="collapse" id="collapseExample1">
                         <div class="card m-2 card-body">
                             <%if(MedicleHistory.length>0){ MedicleHistory.forEach(element => { %>
-                                <button class="btn btn-sm btn-light">#ST100-<%= element.appointmentId %> </button>
+                                <button onclick="showAppointment(<%= element.appointmentId %>)"
+                                    class="btn btn-sm btn-light">#ST100-<%= element.appointmentId %> </button>
                                 <% })}else{ %>
 
                                     <div>Ops!! Empty.</div>
@@ -53,8 +55,9 @@
 
                     <div class="collapse" id="collapseExample2">
                         <div class="card m-2 card-body">
-                            <%if(PrescriptionHistory.length>0){ MedicleHistory.forEach(element => { %>
-                                <button class="btn btn-sm btn-light">#ST100-<%= element.PrescriptionId %> </button>
+                            <%if(PrescriptionHistory.length>0){ PrescriptionHistory.forEach(element => { %>
+                                <button onclick="getPrescriptonDetails(<%=element.AppointmentId%>)"
+                                    class="btn btn-sm btn-light">#PRES100-<%= element.PrescriptionId %> </button>
                                 <% })}else{ %>
 
                                     <div>Ops!! Empty.</div>
@@ -72,12 +75,186 @@
 
 
                 </div>
-                <div class="col-9">
+                <div id="PrescriptionSection" class="col-9">
                     <div class="d-flex justify-content-center flex-column">
-                        <div style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
-                            Dr <%= doctor.Name %>
+                        <div class="row">
+                            <div class="col-12">
+                                <div
+                                    style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
+                                    Dr <%= doctor.Name %>
+                                </div>
+                            </div>
+
+
+
                         </div>
-                        <div id="viewId">
+
+
+                        <div id="viewId" class="row" style="height: 400px;">
+
+
+                            <div class="col-5" style="border-right: 2px solid gray; height: 400px;">
+                                <div
+                                    style="font-size:18px;font-weight: bold; text-decoration: underline;font-style: italic;">
+                                    Medicle Test</div>
+                                <!-- reports section for doctor  -->
+                                <div id="reportSection"
+                                    class="d-flex flex-column mt-4 justify-content-start align-items-start">
+                                    <% Mediclereports.forEach(element=> { %>
+                                        <div class="row w-100 m-0 p-0">
+                                            <div class="col-8">
+                                                <%=element.ReportName%>
+                                            </div>
+                                            <div class="col-4">
+                                                <button onclick="removeReport(this,<%=element.ReportId %>)"
+                                                    class="btn btn-sm btn-outline-danger m-1">Delete</button>
+                                            </div>
+                                        </div>
+                                        <% }) %>
+                                </div>
+                                <div class="row w-100 m-1">
+                                    <input id="reportName" name="reportName" class="col-8" type="text"
+                                        placeholder="Enter report name...">
+                                    <div class="col-1"></div>
+                                    <button onclick="addReport(<%= AppointmentId %> )"
+                                        class="col-2 btn btn-sm btn-outline-success">+</button>
+                                </div>
+
+
+                            </div>
+                            <div class="col-7">
+                                <div
+                                    style="font-size:18px;font-weight: bold; text-decoration: underline;font-style: italic;">
+                                    Medicine</div>
+                                <!-- medicine sections  -->
+                                <div id="medicineSection"
+                                    class="d-flex flex-column mt-4 justify-content-start align-items-start">
+                                    <% Medicine.forEach(element=> { %>
+                                        <div class="d-flex flex-column justify-content-center w-100"
+                                            style="font-size: 16px;">
+                                            <div class="row w-100 m-1 p-0">
+                                                <div class="col-2" style="font-weight: bold; font-style: italic;">
+                                                    <%=element.Type%> :
+                                                </div>
+                                                <div class="col-6">
+                                                    <%=element.MedicineName%>
+                                                </div>
+                                                <div class="col-2">
+                                                    <%=element.Duration%> times
+                                                </div>
+                                                <div class="col-2">
+                                                    <button onclick="removeMedicine(this,<%=element.MedicineId %>)"
+                                                        class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </div>
+                                            </div>
+                                            <div class="row w-100 notes">
+                                                <div class="col-3"></div>
+                                                <div class="col-9">
+                                                    <%=element.Note%>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <% }) %>
+                                </div>
+
+
+                                <div class="row w-100 m-1 d-flex justify-content-center align-items-center flex-column">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                                        style="width: 40px ;cursor: pointer; height: 40px;padding: 5px; text-align: center; border: 1px solid green; border-radius: 10px;font-size: 20px;">+</button>
+
+                                    <!-- The Modal -->
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog modal-md">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Medicine</h4>
+                                                    <button type="button" class="btn-close"
+                                                        data-bs-dismiss="modal"></button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <div class="row d-flex justify-content-center m-1">
+                                                        <div class="col-2 m-0 p-0">
+                                                            <div
+                                                                style="display: block; align-items: flex-start; font-size: 16px;font-weight: bold; width: 100%;">
+                                                                Type
+                                                            </div>
+
+                                                            <select class="types" id="Type" name="Type">
+                                                                <option value=" ">Select</option>
+                                                                <option value="Tablet">Tablet</option>
+                                                                <option value="Capsul">Capsul</option>
+                                                                <option value="Syrup">Syrup</option>
+                                                                <option value="Injection">Injection</option>
+                                                                <option value="Suppository">Suppository</option>
+                                                            </select>
+
+                                                        </div>
+
+                                                        <div class="col-7 m-0 p-0">
+                                                            <div
+                                                                style="display: block; align-items: flex-start; font-size: 16px;font-weight: bold; width: 100%;">
+                                                                Medicine Name
+                                                            </div>
+                                                            <input
+                                                                style="width: 100%; height: 35px;border: 1px solid rgb(183, 178, 178);"
+                                                                type="text" id="MedicineName" name="MedicineName">
+                                                        </div>
+                                                        <div class="col-3 m-0 p-0">
+                                                            <div
+                                                                style="display: block; align-items: flex-start; font-size: 16px;font-weight: bold; width: 100%;">
+                                                                Durations
+                                                            </div>
+
+                                                            <select class="types" id="Duration" name="Duration">
+                                                                <option value=" ">Select</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="5">6</option>
+                                                                <option value="5">7</option>
+                                                                <option value="5">8</option>
+                                                                <option value="5">9</option>
+                                                            </select>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="form-floating mt-1">
+                                                        <textarea class="form-control" id="Note" name="Note"
+                                                            placeholder="Comment goes here"></textarea>
+                                                        <label for="comment">Write Note if needed!</label>
+                                                    </div>
+
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer d-flex justify-content-between">
+                                                    <button type="button" class="btn btn-success"
+                                                        onclick="addMedicine(<%=AppointmentId%>)">Add</button>
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-flex justify-content-end" style="margin-top:100px">
+                                    <% if (Status=='End-Ap') { %>
+                                        <a  href="/dashboard/view/end_appointment?AppointmentId=<%=AppointmentId%>"  class="btn btn-sm btn-warning" style="max-width: 100px;"><%=Status%> </a>
+                                    <% } else{ %>
+                                    <button disabled class="btn btn-sm btn-warning" style="max-width: 100px;"><%=Status%> </button>
+                                    <% }  %>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -87,7 +264,7 @@
     </div>
 
     <%- include('../common/tail') %>
-        <script src="/script/mainDoctorProfile.js"></script>
+        <script src="/script/mainDoctorProfile.js"> </script>
         </body>
 
         </html>

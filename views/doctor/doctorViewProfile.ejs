@@ -22,78 +22,6 @@
                                 <p class="forBody">Specializes in <%= DoctorInfo.Speciality %>
                                 </p>
                                 <!-- modal button  -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#myModal"
-                                    style="font-weight: bold; background-color: rgb(110, 110, 105); color: white; border: 1px solid white; padding: 5px 10px;">Request
-                                    For Appointment</button>
-                                <!-- The Modal -->
-                                <div class="modal" id="myModal">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Health Query</h4>
-                                                <button type="button" class="btn-close"
-                                                    data-bs-dismiss="modal"></button>
-                                            </div>
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <form action="/appointment/<%=DoctorInfo.DoctorId%> " method="post">
-                                                    <div class="mb-3">
-                                                        <label for="problemStatement" class="form-label">Problem
-                                                            Statement*: </label>
-                                                        <textarea name="problemStatement" class="form-control"
-                                                            id="problemStatement" rows="4"></textarea>
-                                                    </div>
-
-                                                    <div class="mb-3 mt-3">
-                                                        <label for="visitAt" class="form-label">Visit At*:</label>
-                                                        <select id="visitAt" required name="visitAt"
-                                                            class="form-select form-select-lg mb-3"
-                                                            aria-label=".form-select-lg example">
-                                                            <option value="">Select</option>
-                                                            <option value="Online">Online</option>
-                                                            <option value="Clinic">Clinic</option>
-                                                        </select>
-                                                    </div>
-
-
-                                                    <div class="mb-3 mt-3">
-                                                        <label for="level" class="form-label">Emmergiency Level: (1 is
-                                                            low 10 is
-                                                            high) </label>
-                                                        <select id="level" required name="level"
-                                                            class="form-select form-select-lg mb-3"
-                                                            aria-label=".form-select-lg example">
-                                                            <option value="">Select</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">6</option>
-                                                            <option value="8">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                        </select>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </form>
-                                            </div>
-
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>
@@ -195,7 +123,7 @@
                 <div class="col-7">
                     <div class="d-flex justify-content-center flex-column">
                         <div style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
-                            Special Tallent</div>
+                            Your Strength</div>
                         <div>Based on patients Reviews</div>
                         <%- include('../common/ratingBar') %>
                     </div>

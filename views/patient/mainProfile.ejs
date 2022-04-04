@@ -8,9 +8,9 @@
                     <div class="lead m-2" style="border-bottom: 1px solid rgb(209, 201, 201);">
                         <h5>Your Profile</h5>
                     </div>
-                    <div  href="/dashboard/patient_profile" class="butMain">Present Consultation</div>
-                    <div class="butMain">Previous Consultation</div>
-                    <div class="butMain">Report</div>
+                    <a  href="/dashboard/patient_profile?Status=Present" class="butMain">Present Consultation</a>
+                    <a href="/dashboard/patient_profile?Status=Previous" class="butMain">Previous Consultation</a>
+                    <a class="butMain">Report</a>
                     <div class="butMain"><a style="text-decoration: none; color: black; width: 100%;"
                             href="/pay">Deposit</a></div>
                     <div onclick="transactionList()" class="butMain">Transaction</div>
@@ -18,11 +18,11 @@
 
                 </div>
                 <div class="col-9">
-                    <div class="d-flex justify-content-center flex-column">
+                    <div id="viewId" class="d-flex justify-content-center flex-column">
                         <div style="border-bottom: 1px solid rgb(212, 210, 210); font-size: 22px; font-weight: 600;">
                             Balance: $<%= patient.Balance %>
                         </div>
-                        <div id="viewId">
+                        <div >
                             <table class="table table-bordered">
                                 <thead class=" table-dark">
                                     <tr>
@@ -31,21 +31,28 @@
                                         <th>VisitAt</th>
                                         <th>Date</th>
                                         <th>Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
+                               
                                 <tbody>
                                     <% AppointmentList.forEach(element => { %>
                                         <tr>
                                             <td><%= element.Name %>  </td>
                                             <td><%= element.ProblemDesctiption %></td>
                                             <td><%= element.VisitAt %></td>
-                                            <td><%= element.Date? element.Date:"Comming." %></td>
+                                            <td><%= element.Date? new Date(element.Date).toLocaleDateString():"Comming." %></td>
                                             <td><%= element.Status %></td>
+                                            <td><button onclick="getPrescriptonDetails(<%=element.AppointmentId%>)" class="btn btn-sm btn-info">View</button></td>
                                         </tr>
                                     <% }) %>
                                     
                                 </tbody>
                             </table>
+                            <% if (!AppointmentList.length) { %>
+                                <div class="row"><div class="lead d-flex justify-content-center">No Recored Found</div></div>
+                             
+                            <% } %>
                         </div>
                     </div>
 
@@ -56,6 +63,7 @@
 
     <%- include('../common/tail') %>
         <script src="/script/depositHandeler.js"></script>
+        <script src="/script/patient/patientProfile.js"></script>
         </body>
 
         </html>

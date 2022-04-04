@@ -113,3 +113,23 @@ img{
 .butMain:active{
     color: green;
 }
+
+
+/* viewPrescriptions.ejs css  */
+
+.types{
+    width: 100%;
+    border: 1px solid gray;
+    font-size: 14px;
+    height: 35px;
+    border: 1px solid rgb(183, 178, 178);
+}
+
+
+.notes{
+    color: gray;
+    font-size: 14px;
+        
+    padding: 0;
+
+}
