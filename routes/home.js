@@ -35,7 +35,7 @@ route.get('/login',LoginGetController);
 route.post('/signup',SignupPostController);
 route.post('/login',LoginPostController);
 route.get('/logout',LogoutController);
-route.get('/',isUserAuthenticated,home);
+route.get('/',home);
 
 
 module.exports = route;

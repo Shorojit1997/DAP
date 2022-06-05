@@ -1,32 +1,56 @@
+<div id="ratingBox" class="p-3">
 
-    <div class=" p-3">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="ratings"> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i> </div>
-            <h5 class="review-count">12 Reviews(Total)</h5>
+    <!-- total rating  bar   -->
+    <div class="d-flex justify-content-between align-items-center">
+
+        
+        <div class="ratings">
+            <% for( let index = 0; index < 5; index++ ) { %>
+                <% if (index<Math.floor(Avgrage+ 0.5)) { %>
+                    <i class="fa fa-star rating-color"></i>
+                    <% } else{%>
+                        <i class="fa fa-star"></i>
+                        <% }%>
+            <% } %>
         </div>
-        <div class="mt-5 d-flex justify-content-between align-items-center">
-            <h5 class="review-stat">Kidney Stones</h5>
-            <div class="small-ratings"> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-        </div>
-        <div class="mt-1 d-flex justify-content-between align-items-center">
-            <h5 class="review-stat">Kidney Stones</h5>
-            <div class="small-ratings"> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i> </div>
-        </div>
-        <div class="mt-1 d-flex justify-content-between align-items-center">
-            <h5 class="review-stat">Kidney Sergary</h5>
-            <div class="small-ratings"> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-        </div>
-        <div class="mt-1 d-flex justify-content-between align-items-center">
-            <h5 class="review-stat">Prostrate</h5>
-            <div class="small-ratings"> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> </div>
-        </div>
-        <div class="mt-1 d-flex justify-content-between align-items-center">
-            <h5 class="review-stat">Urethera</h5>
-            <div class="small-ratings"> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-        </div>
-        <div class="mt-1 d-flex justify-content-between align-items-center">
-            <h5 class="review-stat">Uretaor</h5>
-            <div class="small-ratings"> <i class="fa fa-star rating-color"></i> <i class="fa fa-star rating-color"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+        <h5 class="review-count"><%=Total%>  Reviews(Total)</h5>
+    </div>
+
+
+    <!-- individual  rating  bar   -->
+
+
+    <% RatingDetails.forEach(element=> { %>
+        <div class="mt-1 row d-flex justify-content-between align-items-center">
+            <h5 class="col-6 review-stat">
+                <%= element.Description %>
+            </h5>
+            <div class="col-3 small-ratings">
+                <% for( let index=0; index <5; index++ ) { %>
+                    <% if (index<Math.floor(element.Rating+ 0.5)) { %>
+                        <i class="fa fa-star rating-color"></i>
+                        <% } else{%>
+                            <i class="fa fa-star"></i>
+                            <% }%>
+                                <% } %>
+
+                                    <i style='font-weight:bold;color:black'>(<%=element.Total%>)</i>
+            </div>
+            <div style="max-width:100px" class='col-3'>
+                <button onclick="deleteRating(this,<%=element.RatingId%>)" class='btn btn-sm btn-outline-danger'>Delete</button>
+            </div>
         </div>
 
+        <% }) %>
+
+
+
+
+</div>
+
+<!-- add button section  -->
+<div class="row w-100 m-1 mt-5">
+    <input id="optionName" name="option" class="col-8" type="text" placeholder="Enter option name...">
+    <div class="col-1"></div>
+    <button onclick="addRating()" class="col-2 btn btn-sm btn-outline-success">+</button>
 </div>

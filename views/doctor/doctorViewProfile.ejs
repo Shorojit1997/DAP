@@ -21,7 +21,6 @@
                                 </p>
                                 <p class="forBody">Specializes in <%= DoctorInfo.Speciality %>
                                 </p>
-                                <!-- modal button  -->
 
                             </div>
                         </div>
@@ -29,7 +28,7 @@
                             <div class="d-flex w-100 flex-column align-items-start">
                                 <p class="forBody">
                                     <i class='fa fa-check-circle ' style='font-size:18px;color:green;'></i>
-                                    5 Patient Feedback
+                                    <%=Total%>  Patient Feedback
                                 </p>
                                 <p class="forBody">
                                     <i class='fa fa-check-circle ' style='font-size:18px;color:green;'></i>
@@ -135,6 +134,8 @@
     </div>
 
     <%- include('../common/tail') %>
+    
+    <script src="/script/patientRating.js" ></script>
         </body>
 
         </html>

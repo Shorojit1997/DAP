@@ -38,7 +38,7 @@ const Patients_has_Ratings=require('../models/Patient_has_Ratings');
 
 const Ratings =require('../models/Ratings');
 const Transactions=require('../models/Transactions');
-const Uploads = require('../models/Uploads');
+
 
 module.exports=async()=>{
     try{
@@ -70,7 +70,7 @@ module.exports=async()=>{
         await query(Colors);
         await query(Informations);
         await query(Admins);
-        await query(Uploads);
+        await query(Upload);
         console.log('Successfully Created All Tables\n');
         
     }

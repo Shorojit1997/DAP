@@ -85,12 +85,12 @@ const doctorProfilePostController = async (req, res, next) => {
       return res.redirect('/dashboard/profile1');
     }
     else if (page == 2) {
-      console.log('Yes');
+    
       await query(`update educations set _option='${req.body.educations}'`);
-     console.log('Yes1');
-     console.log(req.body)
+   
+    
       await query(`update doctorinfo set  Awards='${req.body.awards}',Speciality='${req.body.speciality}',treatmentAreas='${req.body.treatmentArea}',Bio='${req.body.bio}',VideoBioUrl='${req.body.videoBioUrl}',VisitOnline='${req.body.onlineVisit}',VisitClinic='${req.body.clinicVisit}',AccountNumber='${req.body.accountNumber}',SearchTag='${req.body.SearchTag}',Available='${req.body.Available}' where DoctorId='${req.doctor.DoctorId}'`)
-      console.log('Yes2');
+      
       return res.redirect(`/dashboard/profile1?pageNumber=${page}`);
     }
     else {

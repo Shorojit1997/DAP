@@ -24,13 +24,16 @@ const {isUserAuthenticated}= require('../middleware/authenticateCheacker');
 
 
 const {
-    DoctoRatingGetController
+    DoctoRatingGetController,
+    DoctoRatingPostController,
+    DeleteDoctoRatingPostController
 } =require('../controller/Doctor/RatingConroller')
 
 
 
 route.get('/doctor/rating',isUserAuthenticated,DoctoRatingGetController);
-
+route.post('/doctor/rating',isUserAuthenticated,DoctoRatingPostController);
+route.post('/doctor/delete/rating',isUserAuthenticated,DeleteDoctoRatingPostController);
 // main profile 
 
 route.get('/doctor_profile',isUserAuthenticated,mainProfileGetController);

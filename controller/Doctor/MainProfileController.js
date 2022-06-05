@@ -48,7 +48,7 @@ const PreviousConsultationGetController = async (req, res, next) => {
   try {
 
     let AppointmentList = await query(`select Patients.Name,appointments.AppointmentId,appointments.ProblemDesctiption,appointments.VisitAt,appointments.Date,appointments.Status from appointments cross join Patients  where Patients.PatientId=appointments.PatientId and appointments.Status='Completed' and DoctorId='${req.doctor.DoctorId}' order by appointments.Date ASC`);
-    return res.render('./doctor/PresentConsultation',
+    return res.render('./doctor/PreviousConsultation.ejs',
       {
         title: 'Previous Consultations',
         sideBarList: DoctorSidebar,

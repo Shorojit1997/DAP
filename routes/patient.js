@@ -9,14 +9,20 @@ const {
     PrescriptionDetailsGetController,
     MainProfileGetController,
     MainProfilePostController,
-    TransactionGetController
+    TransactionGetController,
+    ReviewGetController,
+    ReviewPostController
 } =require('../controller/patients/mainProfile')
 
 
 const {isUserAuthenticated}= require('../middleware/authenticateCheacker')
 
+route.get('/patient/reviews',isUserAuthenticated,ReviewGetController);
+route.post('/patient/reviews',isUserAuthenticated,ReviewPostController);
+
 route.get('/patient',isUserAuthenticated,PatientProfileGetController);
 route.post('/patient',isUserAuthenticated,PatientProfilePostController);
+
 
 route.get('/patient/prescription',isUserAuthenticated,PrescriptionDetailsGetController);
 route.get('/patient_profile',isUserAuthenticated,MainProfileGetController);

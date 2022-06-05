@@ -2,12 +2,22 @@ const query = require('../database/query')
 
 // session authentication checker 
 
-const isUserAuthenticated = (req,res,next) => {
-  //  console.log('IsUserAuthenticated', req.session.isLogin)
+const isUserAuthenticated = (req, res, next) => {
+    //  console.log('IsUserAuthenticated', req.session.isLogin)
     if (!req.session.isLogin) {
         return res.redirect('/login')
     }
-    
+
+    next();
+}
+
+const isAdminAuthenticated = (req, res, next) => {
+    //  console.log('IsUserAuthenticated', req.session.isLogin)
+
+    if (!req.session.isLogin) {
+        return res.redirect('/admin/login')
+    }
+
     next();
 }
 
@@ -15,17 +25,21 @@ const isUserAuthenticated = (req,res,next) => {
 
 const loginUserbinding = () => {
     return async (req, res, next) => {
-       // console.log('LoginuserBinding', req.session.isLogin)
+        // console.log('LoginuserBinding', req.session.isLogin)
         if (!req.session.isLogin) {
             return next();
         }
-        if(req.session.isLogin && (req.path=='/login' || req.path=='/signup')){
+        if (req.session.isLogin && (req.path == '/login' || req.path == '/signup')) {
             return res.redirect('/');
         }
         try {
 
             let info;
-            if (req.session.DoctorId) {
+            if (req.session.AdminId) {
+                info = await query(`select * from admins where adminId='${req.session.AdminId}'`);
+                req.admin = info[0];
+            }
+            else if (req.session.DoctorId) {
                 info = await query(`select * from doctorInfo where DoctorId='${req.session.DoctorId}'`);
                 req.doctor = info[0];
             }
@@ -41,4 +55,4 @@ const loginUserbinding = () => {
     }
 }
 
-module.exports = { isUserAuthenticated, loginUserbinding };
+module.exports = { isUserAuthenticated, loginUserbinding, isAdminAuthenticated };

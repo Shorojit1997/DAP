@@ -54,8 +54,7 @@
                             <div class="card m-2 p-2">
                                 <div class="row p-2">
                                     <div class="col-8">
-                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
-                                            u...
+                                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi?
                                         </h5>
                                         <div class="row">
                                             <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
@@ -82,8 +81,7 @@
                             <div class="card m-2 p-2">
                                 <div class="row p-2">
                                     <div class="col-8">
-                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
-                                            u...
+                                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi?
                                         </h5>
                                         <div class="row">
                                             <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
@@ -110,8 +108,7 @@
                             <div class="card m-2 p-2">
                                 <div class="row p-2">
                                     <div class="col-8">
-                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
-                                            u...
+                                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi?
                                         </h5>
                                         <div class="row">
                                             <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
@@ -138,8 +135,7 @@
                             <div class="card m-2 p-2">
                                 <div class="row p-2">
                                     <div class="col-8">
-                                        <h5>I am a 20 years old girl, with PCOS. I'm sexually active but have never had
-                                            u...
+                                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eligendi?
                                         </h5>
                                         <div class="row">
                                             <div class="col-2 p-0 m-0 d-flex align-items-center justify-content-center">
@@ -181,34 +177,18 @@
                     </div>
                     <div class="row">
                         <!-- single item  -->
-                        <div class="col-12 col-md-6 col-lg-6">
-                            <div class="card m-2 p-2">
-                                <iframe height="350px"
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                                </iframe>
+                        <% VideoInfo.forEach(element => { %>
+
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <div class="card m-2 p-2">
+                                    <iframe height="350px"
+                                        src="<%=element.VideoBioUrl%>" >
+                                    </iframe>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-6">
-                            <div class="card m-2 p-2">
-                                <iframe height="350px"
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                                </iframe>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-6">
-                            <div class="card m-2 p-2">
-                                <iframe height="350px"
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                                </iframe>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-6">
-                            <div class="card m-2 p-2">
-                                <iframe height="350px"
-                                    src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                                </iframe>
-                            </div>
-                        </div>
+                         
+                        <% }) %>
+                       
 
                     </div>
                 </div>

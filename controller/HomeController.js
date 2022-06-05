@@ -7,9 +7,10 @@ const query = require("../database/query");
 const home = async (req, res, next) => {
 
   try {
-   //   CreateTable();
-  //  console.log(req.doctor);
-    res.render('index', { title: "Welcome to Doctor's Point", user: { isLogin: false } });
+    //   CreateTable();
+    //  console.log(req.doctor);
+    let VideoInfo=await query(`select VideoBioUrl from doctorInfo limit 20`);
+    res.render('index', { title: "Welcome to Doctor's Point", user: { isLogin: false },VideoInfo });
   }
   catch (e) {
 
@@ -97,7 +98,7 @@ const SignupPostController = async (req, res, next) => {
       // req.session.doctor = doctor[0];
       req.session.isLogin = true;
       req.session.PatientId = patient[0].PatientId;
-  
+
       req.session.save((err) => {
         if (err)
           return next();
@@ -137,12 +138,12 @@ const LoginPostController = async (req, res, next) => {
             password: error.password,
           }
         });
-      
+
     let user = await query(`select * from doctorinfo where username='${username}'`);
-    if(!user.length){
+    if (!user.length) {
       let user1 = await query(`select * from patients where username='${username}'`);
-      if(user1.length)
-        user=user1;
+      if (user1.length)
+        user = user1;
     }
     if (!user.length) {
       error.username = "Your username does not exist!";
@@ -154,25 +155,27 @@ const LoginPostController = async (req, res, next) => {
           error: {
             username: error.username,
             password: '',
-            userName:username
+            userName: username
           }
         });
     }
 
-    let isUser=await bcrypt.compare(password,user[0].Password);
-    if(isUser){
+    let isUser = await bcrypt.compare(password, user[0].Password);
+    if (isUser) {
       req.session.isLogin = true;
-      if(user[0].DoctorId)
-           req.session.DoctorId = user[0].DoctorId;
-      else 
-         req.session.PatientId = user[0].PatientId;
+      if (user[0].DoctorId)
+        req.session.DoctorId = user[0].DoctorId;
+      else
+        req.session.PatientId = user[0].PatientId;
+
+     
       req.session.save((err) => {
         if (err)
           return next();
       })
       return res.redirect('/')
     }
-    else{
+    else {
       error.password = "Your password does not match!";
 
       return res.render('login',
@@ -187,7 +190,7 @@ const LoginPostController = async (req, res, next) => {
     }
 
 
-   // res.render('login', { title: "Login Here", user: { isLogin: req.session.isLogin }, error: {} });
+    // res.render('login', { title: "Login Here", user: { isLogin: req.session.isLogin }, error: {} });
   }
   catch (e) {
 

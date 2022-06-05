@@ -3,7 +3,7 @@
 module.exports = "CREATE TABLE IF NOT EXISTS Ratings (" +
     "RatingId INT NOT NULL AUTO_INCREMENT," +
     "DoctorId INT NOT NULL," +
-    "Rating DOUBLE," +
+    "Rating DOUBLE default 0," +
     "Description VARCHAR(255)," +
     "Date DATE," +
     "RatingPatient VARCHAR(255)," +

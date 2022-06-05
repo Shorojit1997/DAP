@@ -24,15 +24,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">ASK QUESTION</a>
                 </li>
-                <% if(isLogin){ %>
+                
+                <% if(isLogin && !isAdminLogin){ %>
 
                 <div class="dropdown">
                     <button type="button" style="color: green; font-weight: bold;" class="btn  dropdown-toggle"
                         data-bs-toggle="dropdown">
-                        <%= doctor? doctor.Name : patient.Name  %>
+                        <%= doctor? doctor.Name : patient.Name %>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<%=patient? '/dashboard/patient_profile':'/dashboard/present_consultation'%>">Profile</a></li>
+                        <% if (!patient) { %>
+                            <li><a class="dropdown-item" href="/dashboard/doctor/rating">Reviews</a></li>
+                        <% } %>
+                        
                         <li><a class="dropdown-item"
                                 href="<%= doctor?  '/dashboard/profile1':'/dashboard/patient' %> ">Update Info</a></li>
                         <li><a class="dropdown-item" href="/logout">Logout</a></li>

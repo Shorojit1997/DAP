@@ -1,0 +1,61 @@
+<%- include('../common/navHead.ejs') %> 
+
+<%- include('./adminNav.ejs') %> 
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Doctor Table
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Gender</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <% PatientDetails.forEach(element => { %>
+                                    <tr>
+                                        <td><%= element.Name %>  </td>
+                                        <td><%= element.Email %></td>
+                                        <td><%= element.Username %></td>
+                                        <td><%= element.Gender %></td>
+                                        <td><%= element.Phone %></td>
+                                       
+                                    </tr>
+                                 
+                                <% }) %>
+                               
+                          
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<%- include('../common/navTail.ejs') %> 

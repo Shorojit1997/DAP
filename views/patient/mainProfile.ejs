@@ -31,6 +31,9 @@
                                         <th>VisitAt</th>
                                         <th>Date</th>
                                         <th>Status</th>
+                                        <% if (Status=='Previous') { %>
+                                          <th>Review</th>
+                                          <% } %>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -43,6 +46,9 @@
                                             <td><%= element.VisitAt %></td>
                                             <td><%= element.Date? new Date(element.Date).toLocaleDateString():"Comming." %></td>
                                             <td><%= element.Status %></td>
+                                            <% if (Status=='Previous') { %>
+                                            <td><button onclick="postReview(<%=element.AppointmentId%>)" class="btn btn-sm btn-warning">Write Review</button></td>
+                                            <% } %>
                                             <td><button onclick="getPrescriptonDetails(<%=element.AppointmentId%>)" class="btn btn-sm btn-info">View</button></td>
                                         </tr>
                                     <% }) %>
